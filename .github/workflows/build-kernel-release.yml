@@ -84,9 +84,10 @@ jobs:
         - build-kernel-op11
         - build-kernel-op12
         - build-kernel-opopen
-       # - build-kernel-opace3v
-       # - build-kernel-opace3pro
-       # - build-kernel-opnord4
+        - build-kernel-opace3v
+        - build-kernel-opace3pro
+        - build-kernel-opnord4
+        - build-kernel-oppadpro
     if: ${{ inputs.make_release }}
     env:
       REPO_OWNER: TheWildJames
