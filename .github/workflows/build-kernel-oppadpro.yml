@@ -102,7 +102,7 @@ jobs:
           
           # Apply SUSFS patch for KernelSU
           # patch -p1 --forward < 10_enable_susfs_for_ksu.patch || true
-          ls -al ./
+          ls -al ../../
           cp ../../kernel_patches/KernelSU-Next-Implement-SUSFS-v1.5.5-Universal.patch ./
           patch -p1 < KernelSU-Next-Implement-SUSFS-v1.5.5-Universal.patch || true
           
