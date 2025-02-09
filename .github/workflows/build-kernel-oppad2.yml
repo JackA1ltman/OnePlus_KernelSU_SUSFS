@@ -28,7 +28,7 @@ jobs:
       - name: Set CONFIG Environment Variable
         run: |
           # Set CONFIG dynamically based on matrix values
-          CONFIG="opace5"
+          CONFIG="oppad2"
           
           # Set CONFIG as an environment variable for future steps
           echo "CONFIG=$CONFIG" >> $GITHUB_ENV
@@ -68,7 +68,7 @@ jobs:
           
           # Initialize and sync kernel source
           echo "Initializing and syncing kernel source..."
-          $REPO init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/main -m oneplus_pad2_v.xml --repo-rev=v2.16 --depth=1
+          $REPO init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/oneplus/sm8650 -m oneplus_pad2_v.xml --repo-rev=v2.16 --depth=1
           
           # Sync repo and apply patches
           $REPO --version
@@ -200,7 +200,7 @@ jobs:
           echo "Creating zip files for all formats..."
           cd ./AnyKernel3
           
-          ZIP_NAME="Anykernel3-OPAce5-A15-android14-6.1-KernelSU-SUSFS.zip"
+          ZIP_NAME="Anykernel3-OPPad2-A15-android14-6.1-KernelSU-SUSFS.zip"
           echo "Creating zip file $ZIP_NAME..."
           zip -r "../$ZIP_NAME" ./*
           
