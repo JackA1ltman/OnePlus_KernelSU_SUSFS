@@ -37,6 +37,11 @@ on:
         required: true
         type: boolean
         default: true
+      build_oppadpro:
+        description: 'Build OP Pad Pro kernel?'
+        required: true
+        type: boolean
+        default: true
       make_release:
         description: 'Do you want to create a release?'
         required: true
@@ -66,6 +71,10 @@ jobs:
     if: ${{ inputs.build_opace3v }}
   build-kernel-opnord4:
     uses: ./.github/workflows/build-kernel-opnord4.yml
+    secrets: inherit
+    if: ${{ inputs.build_opnord4 }}
+  build-kernel-oppadpro:
+    uses: ./.github/workflows/build-kernel-oppadpro.yml
     secrets: inherit
     if: ${{ inputs.build_opnord4 }}
 
