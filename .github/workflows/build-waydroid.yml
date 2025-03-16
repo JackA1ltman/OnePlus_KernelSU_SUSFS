@@ -36,6 +36,7 @@ jobs:
           echo "CONFIG set to: $CONFIG"
 
       - name: Install Repo
+        if: env.NOTHING == 'true'
         run: |
           # Install dependencies
           mkdir -p ./git-repo
@@ -67,6 +68,7 @@ jobs:
           echo "Creating folder for configuration: $CONFIG..."
           mkdir -p "$CONFIG"
           cd "$CONFIG"
+          sudo apt install repo -y
           
           # Initialize and sync kernel source
           echo "Initializing and syncing kernel source..."
