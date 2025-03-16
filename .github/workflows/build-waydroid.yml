@@ -28,7 +28,6 @@ jobs:
           . build/envsetup.sh
           apply-waydroid-patches
 
-    steps:
       - name: Maximize build space
         if: env.NOTHING == 'true'
         uses: easimon/maximize-build-space@master
