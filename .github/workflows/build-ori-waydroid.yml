@@ -78,7 +78,8 @@ jobs:
 
           wget -O - https://raw.githubusercontent.com/waydroid/android_vendor_waydroid/lineage-20/manifest_scripts/generate-manifest.sh | bash
           echo "========================================================"
-          $REPO sync -c -j$(nproc --all) --no-clone-bundle -v
+          # $REPO sync -c -j$(nproc --all) --no-clone-bundle -v
+          $REPO --trace sync -c -j$(nproc --all) --no-tags --fail-fast
           . build/envsetup.sh
           apply-waydroid-patches
 
