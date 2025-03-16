@@ -15,7 +15,7 @@ jobs:
           export TERM=xterm-256color
           pacman -Syu --noconfirm
           pacman -S --noconfirm base-devel git
-          pacman -S repo ssh --noconfirm
+          pacman -S repo openssh --noconfirm
           mkdir kernel
           cd kernel
           pwd
