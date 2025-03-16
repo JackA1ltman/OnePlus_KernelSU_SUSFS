@@ -78,6 +78,7 @@ jobs:
           $REPO sync build/make
 
           wget -O - https://raw.githubusercontent.com/waydroid/android_vendor_waydroid/lineage-20/manifest_scripts/generate-manifest.sh | bash
+          echo "========================================================"
           $REPO sync
           . build/envsetup.sh
           apply-waydroid-patches
