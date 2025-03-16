@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Maximize build space
-        if: env.NOTHING == 'true'
         uses: easimon/maximize-build-space@master
         with:
           root-reserve-mb: 8192
@@ -21,7 +20,6 @@ jobs:
           remove-codeql: 'true'
 
       - name: Get build space
-        if: env.NOTHING == 'true'
         run: |
           free -h
           df -h
