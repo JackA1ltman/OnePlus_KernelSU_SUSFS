@@ -18,6 +18,7 @@ jobs:
           pacman -S repo openssh wget --noconfirm
           mkdir kernel
           cd kernel
+          touch ~/.netrc
           pwd
           repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
 
