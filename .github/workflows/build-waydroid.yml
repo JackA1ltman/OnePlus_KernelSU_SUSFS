@@ -63,6 +63,7 @@ jobs:
       
       - name: Initialize and Sync Kernel Source
         run: |
+          export TERM=xterm-256color
           echo "Creating folder for configuration: $CONFIG..."
           mkdir -p "$CONFIG"
           cd "$CONFIG"
