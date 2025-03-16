@@ -26,7 +26,6 @@ jobs:
           swap-storage: true
 
       - name: Maximize build space
-        if: env.LXC_ENABLE == 'true'
         uses: easimon/maximize-build-space@master
         with:
           root-reserve-mb: 8192
