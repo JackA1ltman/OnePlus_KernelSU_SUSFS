@@ -72,16 +72,16 @@ jobs:
           
           # Initialize and sync kernel source
           echo "Initializing and syncing kernel source..."
-          $REPO init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
+          repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
           
           # Sync repo and apply patches
-          # $REPO --version
-          # $REPO --trace sync -c -j$(nproc --all) --no-tags --fail-fast
-          $REPO sync build/make
+          # repo --version
+          # repo --trace sync -c -j$(nproc --all) --no-tags --fail-fast
+          repo sync build/make
 
           wget -O - https://raw.githubusercontent.com/waydroid/android_vendor_waydroid/lineage-20/manifest_scripts/generate-manifest.sh | bash
           echo "========================================================"
-          $REPO sync
+          repo sync
           . build/envsetup.sh
           apply-waydroid-patches
 
