@@ -12,9 +12,10 @@ jobs:
     steps:
       - name: Update
         run: |
+          export TERM=xterm-256color
           pacman -Syu --noconfirm
           pacman -S --noconfirm base-devel git
-          pacman -S repo --noconfirm
+          pacman -S repo ssh --noconfirm
           mkdir kernel
           cd kernel
           pwd
