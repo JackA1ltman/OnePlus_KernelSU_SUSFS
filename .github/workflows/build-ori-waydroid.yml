@@ -87,7 +87,7 @@ jobs:
           
           # Initialize and sync kernel source
           echo "Initializing and syncing kernel source..."
-          $REPO init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
+          $REPO init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs --depth=1
           
           # Sync $REPO and apply patches
           # $REPO --version
