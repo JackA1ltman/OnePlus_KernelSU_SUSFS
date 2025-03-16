@@ -7,9 +7,30 @@ on:
 jobs:
   build-kernel-a14-6-1-kernelsu-susfs:
     runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+    steps:
+      - name: Update
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm base-devel git
+          pacman -S repo --noconfirm
+          mkdir kernel
+          cd kernel
+          pwd
+          repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
+
+          repo sync build/make
+
+          wget -O - https://raw.githubusercontent.com/waydroid/android_vendor_waydroid/lineage-20/manifest_scripts/generate-manifest.sh | bash
+          echo "========================================================"
+          repo sync
+          . build/envsetup.sh
+          apply-waydroid-patches
 
     steps:
       - name: Maximize build space
+        if: env.NOTHING == 'true'
         uses: easimon/maximize-build-space@master
         with:
           root-reserve-mb: 8192
@@ -21,11 +42,13 @@ jobs:
           remove-codeql: 'true'
 
       - name: Get build space
+        if: env.NOTHING == 'true'
         run: |
           free -h
           df -h
           
       - name: Set CONFIG Environment Variable
+        if: env.NOTHING == 'true'
         run: |
           # Set CONFIG dynamically based on matrix values
           CONFIG="waydroid"
@@ -63,6 +86,7 @@ jobs:
           git clone https://github.com/TheWildJames/kernel_patches.git
       
       - name: Initialize and Sync Kernel Source
+        if: env.NOTHING == 'true'
         run: |
           export TERM=xterm-256color
           echo "Creating folder for configuration: $CONFIG..."
